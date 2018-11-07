@@ -33,17 +33,23 @@ t=[m,v,e,ms,j,s]
 
 def plantes():
     for a in range(0,1076040):
-        x0=[19.3*math.cos(20*a*math.pi/180)+4, 36*math.cos(20*a*math.pi/180/3), 50*math.cos(20*a*math.pi/180/4),
-            75*math.cos(20*a*math.pi/180/7), 240*math.cos(20*a*math.pi/180/49), 440*math.cos(20*a*math.pi/180/122)]
         
-        y0=[17*math.sin(20*a*math.pi/180), 36*math.sin(20*a*math.pi/180/3), 50*math.sin(20*a*math.pi/180/4),
-            75*math.sin(20*a*math.pi/180/7), 240*math.sin(20*a*math.pi/180/49), 440*math.sin(20*a*math.pi/180/122)]
+        x0=[19.3*math.cos(20*a*math.pi/180)+4,36*math.cos(20*a*math.pi/180/3),
+            50*math.cos(20*a*math.pi/180/4),75*math.cos(20*a*math.pi/180/7),
+            240*math.cos(20*a*math.pi/180/49),440*math.cos(20*a*math.pi/180/122)]
         
-        x1=[19.3*math.cos(20*(a+1)*math.pi/180)+4, 36*math.cos(20*(a+1)*math.pi/180/3), 50*math.cos(20*(a+1)*math.pi/180/4),
-            75*math.cos(20*(a+1)*math.pi/180/7), 240*math.cos(20*(a+1)*math.pi/180/49), 440*math.cos(20*(a+1)*math.pi/180/122)]
+        y0=[17*math.sin(20*a*math.pi/180),36*math.sin(20*a*math.pi/180/3),
+            50*math.sin(20*a*math.pi/180/4),75*math.sin(20*a*math.pi/180/7),
+            240*math.sin(20*a*math.pi/180/49),440*math.sin(20*a*math.pi/180/122)]
         
-        y1=[17*math.sin(20*(a+1)*math.pi/180), 36*math.sin(20*(a+1)*math.pi/180/3), 50*math.sin(20*(a+1)*math.pi/180/4),
-            75*math.sin(20*(a+1)*math.pi/180/7), 240*math.sin(20*(a+1)*math.pi/180/49), 440*math.sin(20*(a+1)*math.pi/180/122)]
+        x1=[19.3*math.cos(20*(a+1)*math.pi/180)+4,36*math.cos(20*(a+1)*math.pi/180/3),
+            50*math.cos(20*(a+1)*math.pi/180/4),75*math.cos(20*(a+1)*math.pi/180/7),
+            240*math.cos(20*(a+1)*math.pi/180/49),440*math.cos(20*(a+1)*math.pi/180/122)]
+        
+        y1=[17*math.sin(20*(a+1)*math.pi/180),36*math.sin(20*(a+1)*math.pi/180/3),
+            50*math.sin(20*(a+1)*math.pi/180/4),75*math.sin(20*(a+1)*math.pi/180/7),
+            240*math.sin(20*(a+1)*math.pi/180/49),440*math.sin(20*(a+1)*math.pi/180/122)]
+        #轨道的参数方程上各点
     
         for i in range(6):
             t[i-1].up()
