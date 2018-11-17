@@ -1,6 +1,14 @@
+
+"""planets.py: Description of how planets rotate around the sun.
+
+__author__ = "Yicongwei"
+__pkuid__  = "1800011850"
+__email__  = "yicw@pku.edu.cn"
+"""
+
 import turtle
 import math
-colors=['blue','yellow','green','red', 'sea green', 'brown']
+colors=['blue','yellow','sea green','red', 'green', 'brown']
 turtle.setworldcoordinates(-520,-450,520,450)
 
 b=turtle.Screen()
