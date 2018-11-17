@@ -65,4 +65,8 @@ def plantes():
             t[i-1].goto(x1[i],y1[i])
     plantes()
     
-plantes()
+def main():
+    plantes()
+
+if __name__ == '__main__':
+    main()
