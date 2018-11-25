@@ -13,18 +13,6 @@ def before_space(s):
     result=i[0]
     return result
 
-def after_space(s):
-    '''处理字符串，返回得到第一个空格以后的子串'''
-    i=s.partition(' ')
-    end=i[2]
-    return end
-
-def first_inside_quotes(s):
-    '''处理字符串，返回得到第一个出现的双引号里的子串'''
-    start=s.index('"')
-    end=s.index('"',start+1)
-    return s[start+1:end]
-
 def get_from(json):
     '''处理访问URL转化得到的字符串，返回得到from的货币值'''
     a=json.index(':')
@@ -69,13 +57,12 @@ def exchange(currency_from,currency_to,amount_from):
 
 # test functions   
 def test_A():
-    '''测试用来切割字符串的函数before_space和after_space'''
+    '''测试用来切割字符串的函数before_space'''
     assert('0.8963'==before_space('0.8963 Euro'))
-    assert('Euro'==after_space('0.8963 Euro'))
+    
     
 def test_B():
-    '''测试用来处理json字符串的函数first_inside_quotes，get_from，get_to和has_error'''
-    assert('from'==first_inside_quotes('{ "from" : "2.5 United States Dollars", "to" : "2.1589225 Euros", "success" : true, "error" : "" }'))
+    '''测试用来处理json字符串的函数get_from，get_to和has_error'''
     assert('2.5 United States Dollars'==get_from('{ "from" : "2.5 United States Dollars", "to" : "2.1589225 Euros", "success" : true, "error" : "" }'))
     assert('2.1589225 Euros'==get_to('{ "from" : "2.5 United States Dollars", "to" : "2.1589225 Euros", "success" : true, "error" : "" }'))
     assert(False==has_error('{ "from" : "2.5 United States Dollars", "to" : "2.1589225 Euros", "success" : true, "error" : "" }'))
@@ -101,9 +88,11 @@ def test_All():
 test_All()
 
 # 获得访问关键字
+print("If you don't know the code of the currency, you can visit this website in your own browser——https://www.xe.com/iso4217.php")
 currency_from=str(input('the currency code that you now have:'))
 currency_to=str(input('the currency code that you want to get:'))
 amount_from=float(input('the amount of the currency that you want to exchange:'))
 # 输出结果
 print('The amount of the targeted currency is '+str(exchange(currency_from,currency_to,amount_from)))
+
 
