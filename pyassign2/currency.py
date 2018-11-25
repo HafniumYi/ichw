@@ -50,10 +50,13 @@ def iscurrency(currency):
 
 def exchange(currency_from,currency_to,amount_from):
     '''根据所提供的原货币符号及金额，目标货币符号（三字母代码），返回目标货币金额'''
-    a=currency_response(currency_from,currency_to,amount_from)
-    b=get_to(a)
-    answer=float(before_space(b))
-    return answer
+    if iscurrency(currency_from)==False or iscurrency(currency_to)==False:
+        return 'incalculable, please check the currency code.'
+    else: 
+        a=currency_response(currency_from,currency_to,amount_from)
+        b=get_to(a)
+        answer=float(before_space(b))
+        return answer
 
 # test functions   
 def test_A():
@@ -94,5 +97,3 @@ currency_to=str(input('the currency code that you want to get:'))
 amount_from=float(input('the amount of the currency that you want to exchange:'))
 # 输出结果
 print('The amount of the targeted currency is '+str(exchange(currency_from,currency_to,amount_from)))
-
-
