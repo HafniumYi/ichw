@@ -51,7 +51,7 @@ def iscurrency(currency):
 def exchange(currency_from,currency_to,amount_from):
     '''根据所提供的原货币符号及金额，目标货币符号（三字母代码），返回目标货币金额'''
     if iscurrency(currency_from)==False or iscurrency(currency_to)==False:
-        return 'incalculable, please check the currency code.'
+        return 'incalculable, please check the currency code you input.'
     else: 
         a=currency_response(currency_from,currency_to,amount_from)
         b=get_to(a)
@@ -88,12 +88,16 @@ def test_All():
     test_D()
     print("All tests passed")
 
-test_All()
+def main():
+    test_All()
 
-# 获得访问关键字
-print("If you don't know the code of the currency, you can visit this website in your own browser——https://www.xe.com/iso4217.php")
-currency_from=str(input('the currency code that you now have:'))
-currency_to=str(input('the currency code that you want to get:'))
-amount_from=float(input('the amount of the currency that you want to exchange:'))
-# 输出结果
-print('The amount of the targeted currency is '+str(exchange(currency_from,currency_to,amount_from)))
+    # 获得访问关键字
+    print("If you don't know the code of the currency, you can visit this website in your own browser——https://www.xe.com/iso4217.php")
+    currency_from=str(input('the currency code that you now have:'))
+    currency_to=str(input('the currency code that you want to get:'))
+    amount_from=float(input('the amount of the currency that you want to exchange:'))
+    # 输出结果
+    print('The amount of the targeted currency is '+str(exchange(currency_from,currency_to,amount_from)))    
+    
+if __name__ == '__main__':
+    main()
