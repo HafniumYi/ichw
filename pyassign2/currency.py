@@ -13,13 +13,6 @@ def before_space(s):
     result=i[0]
     return result
 
-def get_from(json):
-    '''处理访问URL转化得到的字符串，返回得到from的货币值'''
-    a=json.index(':')
-    start=json.index('"',a+1)
-    end=json.index('"',start+1)
-    return json[start+1:end]
-
 def get_to(json):
     '''处理访问URL转化得到的字符串，返回得到to的货币值'''
     a=json.index('to')
@@ -66,7 +59,6 @@ def test_A():
     
 def test_B():
     '''测试用来处理json字符串的函数get_from，get_to和has_error'''
-    assert('2.5 United States Dollars'==get_from('{ "from" : "2.5 United States Dollars", "to" : "2.1589225 Euros", "success" : true, "error" : "" }'))
     assert('2.1589225 Euros'==get_to('{ "from" : "2.5 United States Dollars", "to" : "2.1589225 Euros", "success" : true, "error" : "" }'))
     assert(False==has_error('{ "from" : "2.5 United States Dollars", "to" : "2.1589225 Euros", "success" : true, "error" : "" }'))
     
