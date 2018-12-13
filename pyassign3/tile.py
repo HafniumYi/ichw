@@ -1,5 +1,5 @@
 """tile.py: 对一面m*n的墙用x*y的砖进行密铺，
-            打印出所有/部分密铺方案，
+            打印出所有密铺方案，
             并在turtle模块上实现可视化。
 __author__ = "Yi Congwei"
 __pkuid__  = "1800011850"
@@ -166,7 +166,7 @@ def main():
         if number<=100:
             for i in range(number):
                 print('第'+str(i+1)+'种：',methods[i])
-            t=int(turtle.numinput('方案可视化', '请输入你要可视化的方案号码', 1, 1, number))
+            t=int(turtle.numinput('方案可视化', '请输入你要可视化的方案号码:1~'+str(number), 1, 1, number))
             visualization(methods[t-1],a,b,m,n)
         else:
             print('由于数量太多我就不全部打出来了。')
@@ -176,14 +176,13 @@ def main():
             if int(cy[0])>int(cy[-1]):
                 for i in range(int(cy[-1]),int(cy[0])+1):
                     print('第'+str(i)+'种：',methods[i])
-                t=int(turtle.numinput('方案可视化', '请输入你要可视化的方案号码', int(cy[-1]),int(cy[-1]),int(cy[0])))
+                t=int(turtle.numinput('方案可视化', '请输入你要可视化的方案号码：'+cy[-1]+'~'+cy[0], int(cy[-1]),int(cy[-1]),int(cy[0])))
                 visualization(methods[t-1],a,b,m,n)
             else:
                 for i in range(int(cy[0]),int(cy[-1])+1):
                     print('第'+str(i)+'种：',methods[i])
-                t=int(turtle.numinput('方案可视化', '请输入你要可视化的方案号码', int(cy[0]),int(cy[0]),int(cy[-1])))
+                t=int(turtle.numinput('方案可视化', '请输入你要可视化的方案号码'+cy[0]+'~'+cy[-1], int(cy[0]),int(cy[0]),int(cy[-1])))
                 visualization(methods[t-1],a,b,m,n)
             
 if __name__ == '__main__':
     main()
-   
