@@ -163,7 +163,7 @@ def main():
         print('不可能完全铺满哒')
     else:
         print('一共有'+str(len(tile(a,b,m,n,wall,f=0)))+'种铺法')
-        if number<=20:
+        if number<=100:
             for i in range(number):
                 print('第'+str(i+1)+'种：',methods[i])
             t=int(turtle.numinput('方案可视化', '请输入你要可视化的方案号码', 1, 1, number))
