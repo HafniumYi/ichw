@@ -107,7 +107,7 @@ def visualization(method,a,b,m,n):
     turtle.title('方案可视化')
     pen.speed(0)
     pen.ht()
-    pen.color('pale turquoise')
+    pen.color('spring green')
     for i in range(n+1):# 打墙基
         pen.up()
         pen.goto(0,n-i)
@@ -118,6 +118,13 @@ def visualization(method,a,b,m,n):
         pen.goto(m-j,n)
         pen.down()
         pen.goto(m-j,0)
+    pen.color('black')
+    for k in range(m):
+        for t in range(n):
+            pen.up()
+            pen.goto(k+0.5,t+0.5)
+            f=k+t*m
+            pen.write(f)
     pen.color('indigo')
     pen.pensize(4)
     #开始将一维点阵二维化，以实现每块砖的填充。
@@ -134,8 +141,7 @@ def visualization(method,a,b,m,n):
             pen.goto(x2,y2)
             pen.goto(x2,y1)
             pen.goto(x1,y1)
-            pen.up()
-    else:
+    else:#1*1的砖tuple似乎只有一个key。。。
         for tile in method:
             x1=tile[0]%m
             y1=tile[0]//m
@@ -148,7 +154,6 @@ def visualization(method,a,b,m,n):
             pen.goto(x2,y2)
             pen.goto(x2,y1)
             pen.goto(x1,y1)
-            pen.up()
     
     
 def main():            
@@ -168,6 +173,7 @@ def main():
                 print('第'+str(i+1)+'种：',methods[i])
             t=int(turtle.numinput('方案可视化', '请输入你要可视化的方案号码:1~'+str(number), 1, 1, number))
             visualization(methods[t-1],a,b,m,n)
+            turtle.exitonclick()
         else:
             print('由于数量太多我就不全部打出来了。')
             cy=input('请选择一部分方案（所选择的区间序号之间用空格打出）：').split()
@@ -178,11 +184,13 @@ def main():
                     print('第'+str(i)+'种：',methods[i])
                 t=int(turtle.numinput('方案可视化', '请输入你要可视化的方案号码：'+cy[-1]+'~'+cy[0], int(cy[-1]),int(cy[-1]),int(cy[0])))
                 visualization(methods[t-1],a,b,m,n)
+                turtle.exitonclick()
             else:
                 for i in range(int(cy[0]),int(cy[-1])+1):
                     print('第'+str(i)+'种：',methods[i])
                 t=int(turtle.numinput('方案可视化', '请输入你要可视化的方案号码'+cy[0]+'~'+cy[-1], int(cy[0]),int(cy[0]),int(cy[-1])))
                 visualization(methods[t-1],a,b,m,n)
+                turtle.exitonclick()
             
 if __name__ == '__main__':
     main()
