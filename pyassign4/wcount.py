@@ -1,5 +1,4 @@
 """wcount.py: count words from an Internet file.
-
 __author__ = "Yicongwei"
 __pkuid__  = "1800011850"
 __email__  = "yicw@pku.edu.cn"
@@ -40,10 +39,10 @@ if __name__ == '__main__':
             book.close()
         except ValueError:#各种报错类型
             print('ValueError:unknown url type. please check your website,we got invaild url from it.')
-        except urllib.error.URLError :
-            print('urllib.error.URLError:Errno 11001. Please check your website or your Internet connection')
         except urllib.error.HTTPError :
             print('urllib.error.URLError:HTTP Error 404: Not Found. Please check your website.')
+        except urllib.error.URLError :
+            print('urllib.error.URLError:Errno 11001. Please check your website or your Internet connection')
         else:
             bookstr = ibook.decode()
             if len(sys.argv) >= 3:#寻找topn值
