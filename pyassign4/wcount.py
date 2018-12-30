@@ -7,8 +7,7 @@ __email__  = "yicw@pku.edu.cn"
 import sys
 import collections 
 from urllib.request import urlopen
-import urllib.error
-
+from urllib import error
 def wcount(lines, topn=10):
     """count words from lines of text string, then sort by their counts
     in reverse order, output the topn (word count), each in one line. 
@@ -39,17 +38,17 @@ if __name__ == '__main__':
             book.close()
         except ValueError:#各种报错类型
             print('ValueError:unknown url type. please check your website,we got invaild url from it.')
-        except urllib.error.HTTPError :
-            print('urllib.error.URLError:HTTP Error 404: Not Found. Please check your website.')
-        except urllib.error.URLError :
-            print('urllib.error.URLError:Errno 11001. Please check your website or your Internet connection')
+        except error.HTTPError as e:
+            print('HTTPError:',e.code, e.reason)
+        except error.URLError as e:
+            print(e.reason,'Please check your website or your Internet connection')
         else:
             bookstr = ibook.decode()
             if len(sys.argv) >= 3:#寻找topn值
                 try:
                     topn = int(sys.argv[2])
                 except ValueError:
-                    print('please insure the number that you input is vaild.')
+                    print('ValueError, please insure the number that you input is vaild.')
                 else:
                     topn = int(sys.argv[2])
                     wcount(bookstr,topn)
